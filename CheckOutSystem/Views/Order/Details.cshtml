@@ -1,0 +1,37 @@
+@model COS.Models.OrderDetailsViewModel
+
+<h1>Order Details</h1>
+
+<h2>Order Information</h2>
+
+
+    <p><strong>Customer Name:</strong> @Model.Order.CustomerName</p>
+    <p><strong>Order Date:</strong> @Model.Order.OrderDate</p>
+    <p><strong>Shipping Address:</strong> @Model.Order.ShippingAddress</p>
+    <p><strong>Status:</strong> @Model.Order.Status</p>
+    <p><strong>Total Amount:</strong> @Model.Order.TotalAmount</p>
+
+
+
+<h2>Order Items</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderItems)
+        {
+            <tr>
+                <td>@item.ProductId</td>
+                <td>@item.Quantity</td>
+                <td>@item.Price</td>
+                <td>@(item.Quantity * item.Price)</td>
+            </tr>
+        }
+    </tbody>
+</table>

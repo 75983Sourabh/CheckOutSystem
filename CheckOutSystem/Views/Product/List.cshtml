@@ -1,0 +1,10 @@
+@model IEnumerable<Product>
+
+@foreach (var product in Model)
+{
+    <div>
+        <h3>@product.Name</h3>
+        <p>@product.Price.ToString("C")</p>
+        <a href="/Cart/AddToCart/@product.Id">Add to Cart</a>
+    </div>
+}
